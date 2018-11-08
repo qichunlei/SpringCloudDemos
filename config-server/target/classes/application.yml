@@ -1,0 +1,24 @@
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/qichunlei/SpringCloudDemo.git
+          username: qichunlei
+          password: QIzhang090132
+          default-label: master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    #续约更新时间间隔
+    lease-expiration-duration-in-seconds: 10
+server:
+  port: 8097
